@@ -2,8 +2,8 @@
 
 ## Simple CLI solution to writing Stationeers IC10, from an external editor
 
-Encodes plain-text ``.ic10`` files into valid ``instruction.xml`` file
-Simple CLI interface:
+Encodes plain-text ``.ic10`` files into valid ``instruction.xml`` file via
+simple CLI interface:
 
 ```txt
 Usage: ic10xml <file.ic10> [opts]
@@ -17,7 +17,7 @@ Opts:
 
 ## Config File
 
-If present, file will be loaded on initialisation. Expected path:
+If present, file will be loaded on execution. Expected path:
 
 ```bash
 $HOME/.config/ic10xml/config
