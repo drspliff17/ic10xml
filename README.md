@@ -1,6 +1,4 @@
-# IC10XML
-
-## Simple CLI solution to writing Stationeers IC10, from an external editor
+# Simple CLI solution to writing Stationeers IC10, from an external editor
 
 Encodes plain-text ``.ic10`` files into valid ``instruction.xml`` file via
 simple CLI interface:

@@ -19,7 +19,7 @@ Opts:
 -t | --title        -> Set script title (default to file name, w/o suffix)
 -d | --description  -> Set script description tag
 -a | --author       -> Set script author tag
--v | --version      -> Set version tag [May have unintended consequences]
+-v | --version      -> Set version tag
 
 Config file will be loaded if created at:
 %s
@@ -127,9 +127,6 @@ main :: proc() {
 				fmt.eprintln("Expected value to assign to Game Version")
 				return
 			}
-			fmt.printfln(
-				"[WARN] Untested as to whether version may invalidate file, if mismatch occurs.",
-			)
 			game_version = args[1]
 			args = args[2:]
 
