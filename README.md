@@ -41,3 +41,10 @@ Config uses simple Key/Value format:
 ```txt
 default_author = Dr Spliff
 ```
+
+## Notes
+
+- Currently, the game version tag may/may not break file detection, if it does
+not match actual game version (UNTESTED - might not even be an issue)
+
+- If using Neovim, recommend to pair with [this plugin](https://github.com/Pesterenan/ic10.nvim)
