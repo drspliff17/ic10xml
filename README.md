@@ -12,7 +12,7 @@ Opts:
 -t | --title        -> Set script title (default to file name, w/o suffix)
 -d | --description  -> Set script description tag
 -a | --author       -> Set script author tag
--v | --version      -> Set version tag [May have unintended consequences]
+-v | --version      -> Set version tag
 ```
 
 ## Config File
@@ -42,9 +42,26 @@ Config uses simple Key/Value format:
 default_author = Dr Spliff
 ```
 
-## Notes
+## Download Release
 
-- Currently, the game version tag may/may not break file detection, if it does
-not match actual game version (UNTESTED - might not even be an issue)
+Only Supports Linux, other OS must build from src
+
+[Download the latest release](https://github.com/drspliff17/ic10xml/releases/latest)
+
+Add to ``$PATH``
+
+## Build Instructions
+
+- Requires [Odin Compiler](https://github.com/odin-lang/Odin)
+
+Clone repo, cd into dir and run:
+
+```bash
+odin build src -out:ic10xml
+```
+
+Add to ``$PATH``
+
+## Notes
 
 - If using Neovim, recommend to pair with [this plugin](https://github.com/Pesterenan/ic10.nvim)
