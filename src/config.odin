@@ -2,7 +2,7 @@ package main
 
 import "core:fmt"
 import "core:os"
-import "shared:kvp"
+import "kvp"
 
 Config :: struct {
 	script_directory: string,
