@@ -4,9 +4,33 @@ import "core:fmt"
 import "core:os"
 import "core:strings"
 import "core:time"
-import cli "shared:cli_helpers"
 
 DOTNET_EPOCH_OFFSET :: i64(621355968000000000)
+
+confirmationPrompt :: proc(display_msg: string) -> bool {
+	fmt.println(display_msg)
+
+	buf: [1]u8
+	out: [256]u8
+	i := 0
+	for {
+		n, err := os.read(os.stdin, buf[:])
+		if err != nil || n == 0 do break
+		if buf[0] == '\n' do break
+
+		if i < len(out) {
+			out[i] = buf[0]
+			i += 1
+		}
+	}
+
+	p_valid := []string{"y", "yes"}
+	input := strings.to_lower(string(out[:i]), context.allocator)
+	defer delete_string(input)
+
+	for pk in p_valid do if input == pk do return true
+	return false
+}
 
 print_help :: proc(cfg_path: string) {
 	h := `------------------------------------------------
@@ -201,8 +225,8 @@ main :: proc() {
 
 		if os.exists(new_path) {
 			fmt.printfln("[WARN] File already exists: %s", new_path)
-			p := cli.confirmationPrompt("Overwrite file? [y/N]", true)
-			if p != .Positive {
+			ok := confirmationPrompt("Overwrite file? [y/N] ")
+			if !ok {
 				fmt.println("[ABORTED]")
 				return
 			}
